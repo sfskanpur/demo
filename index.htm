@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<head>
+<script type="text/javascript" >  
+function kydown(event){
+
+ alert("down" + event.charCode);
+ return false;
+};
+function kypress(event) {
+ alert("press" + event.which);
+ return false;
+};
+function kyup(event) {
+ alert("up" + event.which);
+ this.value.replace(/[^0-9\.]/g,'');
+ return false;
+};
+function blr(){
+ this.value=;
+ alert("blur");
+};
+</script>
+<script type="text/javascript" >
+  window.onload=function(){
+   this.onkeydown=function (event) {kypress(event);}
+   function kypress(event) {
+    alert(event.data);
+    //preventInput(event);
+    //return false; ^[0-9]\d$  
+   } 
+  } 
+</script> 
+<title>Untitled Page</title>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+    </div>
+    <input type="number" id="text1" onkeydown="kydown(event)"/>
+    <input type="text" id="text2" onkeypress="kypress(event)" />
+    <input type="text" id="text3" onkeyup="keup(event)" onblur="blr()" />
+     NFS,,123456,,31/03/2022
+     LML,,654321,,31/03/2023
+
+    </form>
+</body>
+</html>
